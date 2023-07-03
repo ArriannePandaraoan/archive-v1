@@ -17,7 +17,7 @@ export const getPost = (req, res) => {
 };
 
 export const addPost = (req, res) => {
-  res.json("from controller");
+  res.json("add post");
 };
 
 export const deletePost = (req, res) => {

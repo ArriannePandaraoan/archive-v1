@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Corn from "../../../assets/svg/Corn";
+import Optimization from "../../../assets/svg/Optimization";
 import { Button, Space } from "antd";
 
 const StyledButtonIcon = styled.div`
@@ -27,9 +27,9 @@ const Component = () => {
         <StyledButtonIcon>
           {" "}
           <span className="mr-[10px]">
-            <Corn />
+            <Optimization />
           </span>{" "}
-          Agriculture
+          Optimization Theory
         </StyledButtonIcon>
       </Button>
     </>

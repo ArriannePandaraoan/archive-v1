@@ -5,6 +5,7 @@ import EconomicsButton from "../../components/CategoryButtons/Economics";
 import CodingButton from "../../components/CategoryButtons/Coding";
 import AwsButton from "../../components/CategoryButtons/AWS";
 import MathButton from "../../components/CategoryButtons/Math";
+import OptimizationButton from "../../components/CategoryButtons/Optimization";
 import ContentEven from "../../components/ContentHome/ContentEven";
 import ContentOdd from "../../components/ContentHome/ContentOdd";
 // import Pic from "../../../assets/images/blgPic.jpg";
@@ -36,8 +37,8 @@ const StyledContainerCategory = styled.div`
   overflow: hidden !important;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  padding-top: 2%;
 `;
 
 const StyledContainerInnerAlign = styled.div`
@@ -154,6 +155,8 @@ const Component = () => {
           <AwsButton />
 
           <MathButton />
+
+          <OptimizationButton />
         </StyledContainerCategory>
 
         <StyledContainerInnerAlign>

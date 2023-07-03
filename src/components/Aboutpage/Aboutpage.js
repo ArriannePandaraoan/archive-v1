@@ -42,11 +42,22 @@ const Component = () => {
           <p className="mt-[40px] font-semibold border-b-4 border-yellow-400 w-[max-content]">
             Hi, I’m Arrianne Mhae Pandaraoan
           </p>
-          <p className="mt-[40px] w-[500px] leading-loose text-justify">
-            I created this archive type of thing to serve as a reference for
-            things related to agriculture, programming, cloud computing,
-            mathematics, and science. I also have some posts on the blog section
-            containing some personal insights on various topics. Cheers!
+          <p className="mt-[40px] w-[500px] leading-loose text-justify text-[12px]">
+            I am a fanatic of the application of math in{" "}
+            <b>crime scene investigations</b> as well as in{" "}
+            <b>optimization theory</b>. I also find enjoyment in learning more
+            about <b>agriculture</b> and <b>economics</b>. <br />
+            <br />
+            As I delve more in the aforementioned topics, I realize more and
+            more the impact of technology in our daily lives -- may it be for
+            sheer pleasures, process improvements, connectivity with others
+            across the globe, or pursuits of knowledge. Indeed, the digital
+            space offers so many possibilities and it is up to us on how we can
+            make the best out of it. <br />
+            <br /> That is why I got into <b>coding</b>, as it offers so many
+            possibilities to tailor-fit the needs of supposed users. <br />
+            <br />
+            Cheers!
           </p>
         </StyledContainer>
       </StyledBg>

@@ -22,6 +22,7 @@ const Component = () => {
             color: "black",
             border: "1px solid #D6D6D6",
             marginRight: "20px",
+            marginTop: "10px",
           }}
           size="large"
         >
