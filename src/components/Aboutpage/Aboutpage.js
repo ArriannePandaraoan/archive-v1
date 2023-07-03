@@ -19,10 +19,10 @@ const StyledContainer = styled.div`
   justify-content: flex-start;
 `;
 
-const StyledButtonIcon = styled.div`
+const StyledContainerImg = styled.div`
   overflow: hidden !important;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 `;
 
@@ -32,12 +32,13 @@ const Component = () => {
       <Menu />
 
       <StyledBg>
-        <img
-          src={Pic}
-          alt="pic"
-          className="rounded-[10px] bg-cover w-[300px] h-[300px] mt-[40px] mr-[50px]"
-        />
-
+        <StyledContainerImg>
+          <img
+            src={Pic}
+            alt="pic"
+            className="rounded-[10px] bg-cover w-[300px] h-[300px] mr-[50px]"
+          />
+        </StyledContainerImg>
         <StyledContainer>
           <p className="mt-[40px] font-semibold border-b-4 border-yellow-400 w-[max-content]">
             Hi, I’m Arrianne Mhae Pandaraoan
