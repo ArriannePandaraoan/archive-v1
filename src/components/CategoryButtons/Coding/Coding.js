@@ -11,7 +11,10 @@ const StyledButtonIcon = styled.div`
   justify-content: center;
 `;
 
-const Component = () => {
+const Component = ({ setCategory }) => {
+  const handleClick = (e) => {
+    setCategory(e.target.innerText);
+  };
   return (
     <>
       <Space>
@@ -25,6 +28,7 @@ const Component = () => {
             marginTop: "10px",
           }}
           size="large"
+          onClick={handleClick}
         >
           <StyledButtonIcon>
             {" "}

@@ -10,11 +10,11 @@ const StyledButtonIcon = styled.div`
   justify-content: center;
 `;
 
-const Component = () => {
+const Component = ({ category }) => {
   return (
     <>
       <p className="text-[25px] pt-[30px] border-b-4 border-yellow-400 text-gray-700">
-        Coding
+        {category}
       </p>
     </>
   );

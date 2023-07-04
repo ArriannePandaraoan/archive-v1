@@ -47,6 +47,7 @@ const StyledContainerInnerAlign = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   padding-top: 2%;
+  padding-bottom: 2%;
 `;
 
 const StyledContainerCenterAlign = styled.div`
@@ -92,33 +93,24 @@ const StyledButtonIcon = styled.div`
 `;
 
 const Component = () => {
-  // const [content, setContent] = useState();
-  // const [name, setName] = useState();
-
-  // function isEven(n) {
-  //   return n % 2 === 0;
-  // }
-
-  // function isOdd(n) {
-  //   return Math.abs(n % 2) === 1;
-  // }
-
-  const posts = [
+  const [posts, setPosts] = useState([
     {
       id: 1,
-      title: "asdasd",
+      title: "Test 1",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
       img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
     },
     {
       id: 2,
-      title: "two",
+      title: "Test 2",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
       img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
     },
-  ];
+  ]);
+
+  const [category, setCategory] = useState("Coding");
 
   return (
     <>
@@ -146,40 +138,24 @@ const Component = () => {
       </StyledContainerSearch>
       <StyledAligment>
         <StyledContainerCategory>
-          <AgricultureButton />
+          <AgricultureButton setCategory={setCategory} />
 
-          <CodingButton />
+          <CodingButton setCategory={setCategory} />
 
-          <EconomicsButton />
+          <EconomicsButton setCategory={setCategory} />
 
-          <AwsButton />
+          <AwsButton setCategory={setCategory} />
 
-          <MathButton />
+          <MathButton setCategory={setCategory} />
 
-          <OptimizationButton />
+          <OptimizationButton setCategory={setCategory} />
         </StyledContainerCategory>
 
         <StyledContainerInnerAlign>
-          <CategoryHomepage />
+          <CategoryHomepage category={category} />
         </StyledContainerInnerAlign>
 
-        {/* {content === isOdd ? (
-          <StyledContainerCenterAlign>
-            <ContentEven />
-          </StyledContainerCenterAlign>
-        ) : (
-          <StyledContainerCenterAlign>
-            <ContentOdd />
-          </StyledContainerCenterAlign>
-        )} */}
-
-        {posts.map((post) => {
-          <div key={post.id}>{post.title}</div>;
-        })}
-
-        {/* <StyledContainerCenterAlign>
-          <ContentOdd />
-        </StyledContainerCenterAlign> */}
+        <ContentEven posts={posts} />
       </StyledAligment>
     </>
   );
