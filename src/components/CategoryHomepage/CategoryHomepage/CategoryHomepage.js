@@ -13,7 +13,7 @@ const StyledButtonIcon = styled.div`
 const Component = ({ category }) => {
   return (
     <>
-      <p className="text-[25px] pt-[30px] border-b-4 border-yellow-400 text-gray-700">
+      <p className="text-[18px] pt-[30px] border-b-4 border-yellow-400 text-gray-700">
         {category}
       </p>
     </>
