@@ -117,7 +117,7 @@ const Component = () => {
           onChange={onEditorChange}
         />
 
-        <StyledButton>
+        {/* <StyledButton>
           <StyledContainer>
             <Form onSubmit={onSubmit}>
               <Button
@@ -135,7 +135,7 @@ const Component = () => {
               </Button>
             </Form>
           </StyledContainer>
-        </StyledButton>
+        </StyledButton> */}
       </StyledBg>
 
       <StyledBgRow>
@@ -176,7 +176,7 @@ const Component = () => {
           <h1>
             <b>Category 👉</b>
           </h1>{" "}
-          <div>
+          <div className="flex items-center gap-x-3">
             <input
               type="radio"
               name="category"
@@ -185,11 +185,11 @@ const Component = () => {
             />
             <label htmlFor="Agriculture"> Agriculture</label>
           </div>
-          <div>
+          <div className="flex items-center gap-x-3">
             <input type="radio" name="category" value="Coding" id="Coding" />
             <label htmlFor="Coding"> Coding</label>
           </div>
-          <div>
+          <div className="flex items-center gap-x-3">
             <input
               type="radio"
               name="category"
@@ -198,11 +198,11 @@ const Component = () => {
             />
             <label htmlFor="Economics"> Economics</label>
           </div>
-          <div>
+          <div className="flex items-center gap-x-3">
             <input type="radio" name="category" value="AWS" id="AWS" />
             <label htmlFor="AWS"> AWS</label>
           </div>
-          <div>
+          <div className="flex items-center gap-x-3">
             <input
               type="radio"
               name="category"
@@ -214,7 +214,7 @@ const Component = () => {
               Crime Scene Investigation
             </label>
           </div>
-          <div>
+          <div className="flex items-center gap-x-3">
             <input
               type="radio"
               name="category"

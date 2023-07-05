@@ -13,6 +13,11 @@ const StyledContainer = styled.div`
 
 const Component = () => {
   const { currentUser, logout } = useContext(AuthContext);
+  const [toggle, setToggle] = useState("block");
+
+  const isLoggedIn = () => {
+    setToggle("none");
+  };
 
   return (
     <>
@@ -21,21 +26,32 @@ const Component = () => {
         <Link className="text-gray-600 hover:text-blue-600 ml-[5%]">About</Link>
         <Link className="text-gray-600 hover:text-blue-600 ml-[5%]">Blogs</Link>
         <Link className="items-center justify-end flex w-[100%] mr-[5%]">
-          Welcome {currentUser?.username} !{" "}
           {currentUser ? (
-            <span
-              className="ml-[3%] text-gray-600 hover:text-blue-600"
-              onClick={logout}
-            >
-              Logout
-            </span>
+            <>
+              Welcome
+              <span className="font-semibold text-[#3fbc96] ml-[10px]">
+                {currentUser?.username}!
+              </span>
+              <span
+                className="ml-[10px] text-gray-600 hover:text-blue-600"
+                onClick={logout}
+              >
+                Logout
+              </span>
+            </>
           ) : (
-            <Link
-              className="ml-[3%] text-gray-600 hover:text-blue-600"
-              to="/login"
-            >
-              Login
-            </Link>
+            <>
+              Welcome
+              <span className="font-semibold text-[#3fbc96] ml-[10px]">
+                Guest!
+              </span>
+              <Link
+                className="ml-[10px] text-gray-600 hover:text-blue-600"
+                to="/register"
+              >
+                Register
+              </Link>
+            </>
           )}
         </Link>
       </StyledContainer>

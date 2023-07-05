@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Menu from "../Menu";
 import Pic from "../../assets/images/vintageBus.jpg";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const StyledBg = styled.div`
   display: flex;
@@ -93,6 +94,14 @@ const Component = () => {
             {err && <p className="mt-[5%] text-red-300">{err}</p>}
           </StyledButton>
         </form>
+      </StyledContainer>
+      <StyledContainer>
+        <span className="text-[10px] mt-[20px]">
+          Already registered? Click here to{" "}
+          <Link className="text-blue-600" to="/login">
+            Login
+          </Link>
+        </span>
       </StyledContainer>
     </>
   );
