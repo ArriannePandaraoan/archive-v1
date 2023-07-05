@@ -16,6 +16,7 @@ import CategoryHomepage from "../CategoryHomepage/CategoryHomepage";
 import { SearchOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const StyledContainer = styled.div`
   overflow: hidden !important;
@@ -93,22 +94,42 @@ const StyledButtonIcon = styled.div`
 `;
 
 const Component = () => {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Test 1",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-      img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
-    },
-    {
-      id: 2,
-      title: "Test 2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-      img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
+
+  const location = useLocation();
+  console.log(location);
+  const categoryQuery = useLocation().search;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8800/api/posts${categoryQuery}`
+        );
+        setPosts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [categoryQuery]);
+
+  // const [posts, setPosts] = useState([
+  //   {
+  //     id: 1,
+  //     title: "Test 1",
+  //     description:
+  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  //     img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Test 2",
+  //     description:
+  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  //     img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
+  //   },
+  // ]);
 
   const [category, setCategory] = useState("Coding");
 
@@ -138,17 +159,29 @@ const Component = () => {
       </StyledContainerSearch>
       <StyledAligment>
         <StyledContainerCategory>
-          <AgricultureButton setCategory={setCategory} />
+          <Link to={`http://localhost:3000/?category=Agriculture`}>
+            <AgricultureButton setCategory={setCategory} />
+          </Link>
 
-          <CodingButton setCategory={setCategory} />
+          <Link to={`http://localhost:3000/?category=Coding`}>
+            <CodingButton setCategory={setCategory} />
+          </Link>
 
-          <EconomicsButton setCategory={setCategory} />
+          <Link to={`http://localhost:3000/?category=Economics`}>
+            <EconomicsButton setCategory={setCategory} />
+          </Link>
 
-          <AwsButton setCategory={setCategory} />
+          <Link to={`http://localhost:3000/?category=Aws`}>
+            <AwsButton setCategory={setCategory} />
+          </Link>
 
-          <MathButton setCategory={setCategory} />
+          <Link to={`http://localhost:3000/?category=CrimeSceneInvest`}>
+            <MathButton setCategory={setCategory} />
+          </Link>
 
-          <OptimizationButton setCategory={setCategory} />
+          <Link to={`http://localhost:3000/?category=Optimization`}>
+            <OptimizationButton setCategory={setCategory} />
+          </Link>
         </StyledContainerCategory>
 
         <StyledContainerInnerAlign>

@@ -1,4 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
 import HomePage from "./components/Homepage";
 import AboutPage from "./components/Aboutpage";
 import CreateContent from "./components/CreateContent";
@@ -16,11 +23,39 @@ function App() {
           <Route path="/create-content" element={<CreateContent />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/blog" element={<BlogPage />}></Route>
+          <Route path="/posts/:id" element={<BlogPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
   );
 }
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Layout />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Home />,
+//       },
+//       {
+//         path: "/post/:id",
+//         element: <BlogPage />,
+//       },
+//       {
+//         path: "/write",
+//         element: <Write />,
+//       },
+//     ],
+//   },
+//   {
+//     path: "/register",
+//     element: <Register />,
+//   },
+//   {
+//     path: "/login",
+//     element: <Login />,
+//   },
+// ]);
 
 export default App;
