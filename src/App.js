@@ -23,7 +23,7 @@ function App() {
           <Route path="/create-content" element={<CreateContent />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/posts/:id" element={<BlogPage />}></Route>
+          <Route path="/post/:id" element={<BlogPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>

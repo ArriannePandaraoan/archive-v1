@@ -80,6 +80,12 @@ const formats = [
 const Component = () => {
   const [content, setContent] = useState("");
 
+  const [title, setTitle] = useState("");
+
+  const [file, setFile] = useState(null);
+
+  const [category, setCategory] = useState("");
+
   const handleChange = (content, delta, source, editor) => {
     console.log(editor.getHTML());
     // console.log(JSON.stringify(editor.getContents())); // delta 사용시
@@ -107,7 +113,12 @@ const Component = () => {
       <Menu />
 
       <StyledBg>
-        <Input className="mb-[30px]" type="text" placeholder="Title"></Input>
+        <Input
+          className="mb-[30px]"
+          type="text"
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)}
+        ></Input>
         <ReactQuill
           style={{ height: "200px" }}
           theme="snow"
@@ -150,7 +161,13 @@ const Component = () => {
             <div className="mb-[10px]">
               <b>Visibility:</b> Public
             </div>
-            <input className="hidden" type="file" name="" id="file" />
+            <input
+              className="hidden"
+              type="file"
+              name=""
+              id="file"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
             <label
               className="cursor-pointer underline underline-offset-4"
               htmlFor="file"

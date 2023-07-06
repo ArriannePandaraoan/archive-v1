@@ -7,7 +7,6 @@ import AwsButton from "../../components/CategoryButtons/AWS";
 import MathButton from "../../components/CategoryButtons/Math";
 import OptimizationButton from "../../components/CategoryButtons/Optimization";
 import ContentEven from "../../components/ContentHome/ContentEven";
-import ContentOdd from "../../components/ContentHome/ContentOdd";
 // import Pic from "../../../assets/images/blgPic.jpg";
 import Menu from "../../components/Menu";
 import { Button, Form, Input, Space, Table } from "antd";
@@ -16,7 +15,7 @@ import CategoryHomepage from "../CategoryHomepage/CategoryHomepage";
 import { SearchOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const StyledContainer = styled.div`
   overflow: hidden !important;
@@ -96,6 +95,8 @@ const StyledButtonIcon = styled.div`
 const Component = () => {
   const [posts, setPosts] = useState([]);
 
+  const [category, setCategory] = useState("All Topics");
+
   const location = useLocation();
   console.log(location);
   const categoryQuery = useLocation().search;
@@ -130,8 +131,6 @@ const Component = () => {
   //     img: "https://static.wikia.nocookie.net/hellokitty/images/5/52/Sanrio_Characters_Hello_Kitty_Image026.png/revision/latest?cb=20221110163853",
   //   },
   // ]);
-
-  const [category, setCategory] = useState("Coding");
 
   return (
     <>

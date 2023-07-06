@@ -4,10 +4,11 @@ import Menu from "../Menu";
 import Pic from "../../assets/images/vintageBus.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment/moment";
 import { AuthContext } from "../../context/authContext";
 import Edit from "../../assets/svg/Edit/Edit.js";
+import Trash from "../../assets/svg/Trash/Trash.js";
 
 const StyledBg = styled.div`
   display: flex;
@@ -52,6 +53,10 @@ const Component = () => {
 
   const postId = location.pathname.split("/")[2];
 
+  const navigate = useNavigate();
+
+  console.log(location);
+
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
@@ -67,6 +72,16 @@ const Component = () => {
     };
     fetchData();
   }, [postId]);
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:8800/api/posts`);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <Menu />
@@ -80,18 +95,24 @@ const Component = () => {
           />
         </StyledContainerImg>
         <StyledContainer>
-          <p className="mt-[40px] font-semibold border-b-4 border-yellow-400 w-[max-content] ">
+          <p className="mt-[40px] font-semibold border-b-4 border-yellow-400 w-[max-content]">
             <StyledContainerRow>
               {" "}
-              Title Blog{" "}
-              {currentUser?.username ===
-                post?.username(
-                  <span className="ml-[20px] mt-[-5px]">
-                    <Link to={`http://localhost:3000/create-content`}>
-                      <Edit />
-                    </Link>
-                  </span>
-                )}
+              Title Blog {/* {currentUser.username === post?.username && ( */}
+              {/* <>
+                <span className="ml-[20px] mt-[-5px]">
+                  <Link to={`http://localhost:3000/create-content`}>
+                    <Edit />
+                  </Link>
+                </span>
+                <span
+                  className="ml-[5px] mt-[-5px] cursor-pointer"
+                  onClick={handleDelete}
+                >
+                  <Trash />
+                </span>
+              </> */}
+              {/* )} */}
             </StyledContainerRow>
           </p>
 
@@ -102,7 +123,7 @@ const Component = () => {
           </p>
 
           <p className="mt-[40px] w-[500px] leading-loose text-justify text-[12px]">
-            Some text
+            {post.description}
           </p>
         </StyledContainer>
       </StyledBg>

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Pic from "../../../assets/images/blgPic.jpg";
 import { Button, Space } from "antd";
 import { Link } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import axios from "axios";
 
 const StyledBgColor = styled.div`
   background-color: #f4f4f4;
@@ -34,6 +36,28 @@ const StyledButtonIcon = styled.div`
 `;
 
 const Component = ({ posts }) => {
+  const [post, setPost] = useState({});
+  const location = useLocation();
+
+  const postId = location.pathname.split("/")[2];
+
+  const { id } = useParams();
+  console.log("g", id);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8800/api/posts/${postId}`
+        );
+        setPost(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [postId]);
+
   return (
     <>
       {posts.map((post) => (
@@ -60,7 +84,7 @@ const Component = ({ posts }) => {
                   size="medium"
                 >
                   <StyledButtonIcon>
-                    <Link className="link" to={`/post/${post.title}`}>
+                    <Link className="link" to={`/post/${post.id}`}>
                       <span className="">Read More</span>
                     </Link>
                   </StyledButtonIcon>
