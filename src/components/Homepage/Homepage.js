@@ -162,27 +162,39 @@ const Component = () => {
       </StyledContainerSearch>
       <StyledAligment>
         <StyledContainerCategory>
-          <Link to={local`/?category=Agriculture`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Agriculture`}
+          >
             <AgricultureButton setCategory={setCategory} />
           </Link>
 
-          <Link to={local`/?category=Coding`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1//?category=Coding`}
+          >
             <CodingButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Economics`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Economics`}
+          >
             <EconomicsButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Aws`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Aws`}
+          >
             <AwsButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=CrimeSceneInvest`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=CrimeSceneInvest`}
+          >
             <MathButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Optimization`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Optimization`}
+          >
             <OptimizationButton setCategory={setCategory} />
           </Link>
         </StyledContainerCategory>
