@@ -101,11 +101,15 @@ const Component = () => {
   console.log(location);
   const categoryQuery = useLocation().search;
 
+  const host = process.env.REACT_APP_API;
+  const local = process.env.REACT_APP_LOCAL;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8800/api/posts${categoryQuery}`
+          // `http://localhost:8800/api/posts${categoryQuery}`
+          `http://ec2-13-214-39-225.ap-southeast-1.compute.amazonaws.com:8800/api/posts${categoryQuery}`
         );
         setPosts(res.data);
       } catch (err) {
@@ -158,11 +162,11 @@ const Component = () => {
       </StyledContainerSearch>
       <StyledAligment>
         <StyledContainerCategory>
-          <Link to={`http://localhost:3000/?category=Agriculture`}>
+          <Link to={local`/?category=Agriculture`}>
             <AgricultureButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Coding`}>
+          <Link to={local`/?category=Coding`}>
             <CodingButton setCategory={setCategory} />
           </Link>
 

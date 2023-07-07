@@ -98,7 +98,7 @@ const Component = () => {
           <p className="mt-[40px] font-semibold border-b-4 border-yellow-400 w-[max-content]">
             <StyledContainerRow>
               {" "}
-              Title Blog {/* {currentUser.username === post?.username && ( */}
+              {post.title} {/* {currentUser.username === post?.username && ( */}
               {/* <>
                 <span className="ml-[20px] mt-[-5px]">
                   <Link to={`http://localhost:3000/create-content`}>
@@ -117,8 +117,9 @@ const Component = () => {
           </p>
 
           <p className="mt-[20px] w-[500px] leading-loose text-justify text-[10px] items-center">
-            <b>Author:</b> {post.username} <br />
+            <b>Author:</b> Admin <br />
             {/* <b>Updated:</b> June 4, 2023 */}
+            <b>Updated: </b>
             {moment(post.date).fromNow()}
           </p>
 

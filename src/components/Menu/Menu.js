@@ -42,15 +42,15 @@ const Component = () => {
           ) : (
             <>
               Welcome
-              <span className="font-semibold text-[#3fbc96] ml-[10px]">
+              <span className="font-semibold text-[#3fbc96] ml-[10px] mr-[10px]">
                 Guest!
               </span>
-              <Link
+              {/* <Link
                 className="ml-[10px] text-gray-600 hover:text-blue-600"
                 to="/register"
-              >
-                Register
-              </Link>
+              > */}
+              Register
+              {/* </Link> */}
             </>
           )}
         </Link>

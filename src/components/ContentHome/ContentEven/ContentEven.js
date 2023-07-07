@@ -39,25 +39,6 @@ const Component = ({ posts }) => {
   const [post, setPost] = useState({});
   const location = useLocation();
 
-  const postId = location.pathname.split("/")[2];
-
-  const { id } = useParams();
-  console.log("g", id);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:8800/api/posts/${postId}`
-        );
-        setPost(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
-  }, [postId]);
-
   return (
     <>
       {posts.map((post) => (
