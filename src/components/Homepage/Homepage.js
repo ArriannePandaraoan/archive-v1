@@ -108,8 +108,8 @@ const Component = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          // `http://localhost:8800/api/posts${categoryQuery}`
-          `http://ec2-13-214-39-225.ap-southeast-1.compute.amazonaws.com:8800/api/posts${categoryQuery}`
+          `http://localhost:8800/api/posts${categoryQuery}`
+          // `http://ec2-13-214-39-225.ap-southeast-1.compute.amazonaws.com:8800/api/posts${categoryQuery}`
         );
         setPosts(res.data);
       } catch (err) {
@@ -162,39 +162,27 @@ const Component = () => {
       </StyledContainerSearch>
       <StyledAligment>
         <StyledContainerCategory>
-          <Link
-            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Agriculture`}
-          >
+          <Link to={`http://localhost:3000/?category=Agriculture`}>
             <AgricultureButton setCategory={setCategory} />
           </Link>
 
-          <Link
-            to={`https://arriannepandaraoan.github.io/archive-v1//?category=Coding`}
-          >
+          <Link to={`http://localhost:3000/?category=Coding`}>
             <CodingButton setCategory={setCategory} />
           </Link>
 
-          <Link
-            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Economics`}
-          >
+          <Link to={`http://localhost:3000/?category=Economics`}>
             <EconomicsButton setCategory={setCategory} />
           </Link>
 
-          <Link
-            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Aws`}
-          >
+          <Link to={`http://localhost:3000/?category=Aws`}>
             <AwsButton setCategory={setCategory} />
           </Link>
 
-          <Link
-            to={`https://arriannepandaraoan.github.io/archive-v1/?category=CrimeSceneInvest`}
-          >
+          <Link to={`http://localhost:3000/?category=CrimeSceneInvest`}>
             <MathButton setCategory={setCategory} />
           </Link>
 
-          <Link
-            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Optimization`}
-          >
+          <Link to={`http://localhost:3000/?category=Optimization`}>
             <OptimizationButton setCategory={setCategory} />
           </Link>
         </StyledContainerCategory>

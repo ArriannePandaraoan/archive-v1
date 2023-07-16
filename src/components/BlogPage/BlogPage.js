@@ -75,7 +75,7 @@ const Component = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8800/api/posts`);
+      await axios.delete(`http://localhost:8800/api/posts/${postId}`);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -98,21 +98,22 @@ const Component = () => {
           <p className="mt-[40px] font-semibold border-b-4 border-yellow-400 w-[max-content]">
             <StyledContainerRow>
               {" "}
-              {post.title} {/* {currentUser.username === post?.username && ( */}
-              {/* <>
-                <span className="ml-[20px] mt-[-5px]">
-                  <Link to={`http://localhost:3000/create-content`}>
-                    <Edit />
-                  </Link>
-                </span>
-                <span
-                  className="ml-[5px] mt-[-5px] cursor-pointer"
-                  onClick={handleDelete}
-                >
-                  <Trash />
-                </span>
-              </> */}
-              {/* )} */}
+              {post.title}
+              {currentUser?.data.username === post?.username && (
+                <>
+                  <span className="ml-[20px] mt-[-5px]">
+                    <Link to={`http://localhost:3000/create-content`}>
+                      <Edit />
+                    </Link>
+                  </span>
+                  <span
+                    className="ml-[5px] mt-[-5px] cursor-pointer"
+                    onClick={handleDelete}
+                  >
+                    <Trash />
+                  </span>
+                </>
+              )}
             </StyledContainerRow>
           </p>
 

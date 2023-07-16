@@ -18,6 +18,20 @@ app.use(express.json());
 app.use(c);
 app.use(cookieParser());
 
+// function checkToken(req, res) {
+// get authcookie from request
+//   const authcookie = req.cookies.authcookie;
+
+// verify token which is in cookie value
+//   jwt.verify(authcookie, "jwtkey", (err, data) => {
+//     if (err) {
+//       res.sendStatus(403);
+//     } else if (data.user) {
+//       req.user = data.user;
+//     }
+//   });
+// }
+
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
