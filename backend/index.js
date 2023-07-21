@@ -37,7 +37,11 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
 // app.get("/test", (req, res) => {
-//   res.json("It works");
+// res.json("It works");
+// console.log(req.cookies);
+// res.send(req.cookies);
+// console.log(req.params);
+// res.send(req.params);
 // });
 
 app.listen(8800, () => {

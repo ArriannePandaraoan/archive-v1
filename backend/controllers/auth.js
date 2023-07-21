@@ -47,20 +47,19 @@ export const login = (req, res) => {
 
     res
       .cookie("access_token", token, {
-        maxAge: 900000,
-        httpOnly: true,
+        // maxAge: 90000000000,
+        // httpOnly: true,
       })
       .status(200)
       .json({ data: other, token: token });
-    // .json(token);
   });
 };
 
 export const logout = (req, res) => {
   res
     .clearCookie("access_token", {
-      sameSite: "none",
-      secure: true,
+      // sameSite: "none",
+      // secure: true,
     })
     .status(200)
     .json("User is logged out");

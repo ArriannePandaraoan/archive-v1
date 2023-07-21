@@ -2,7 +2,6 @@ import { createContext } from "react";
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { useToken } from "antd/es/theme/internal";
 
 export const AuthContext = createContext();
 
@@ -10,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
   const cookies = new Cookies();
 
   const [currentUser, setCurrentUser] = useState(
-    // JSON.parse(localStorage.getItem("user") || null),
+    JSON.parse(localStorage.getItem("access_token") || null),
     // JSON.parse(sessionStorage.getItem("user") || null)
     cookies.get("access_token" || null)
   );
@@ -31,9 +30,9 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // localStorage.setItem("user", JSON.stringify(currentUser));
+    localStorage.setItem("access_token", JSON.stringify(currentUser));
     // sessionStorage.setItem("user", JSON.stringify(currentUser));
-    cookies.set("user_auth", currentUser?.token);
+    cookies.set("access_token", currentUser?.token);
   }, [currentUser, cookies]);
 
   // useMemo(() => cookies.set("user", currentUser), [cookies, currentUser]);

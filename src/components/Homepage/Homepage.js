@@ -15,7 +15,12 @@ import CategoryHomepage from "../CategoryHomepage/CategoryHomepage";
 import { SearchOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useLocation, useParams } from "react-router-dom";
+import {
+  useLocation,
+  useParams,
+  redirect,
+  useNavigate,
+} from "react-router-dom";
 
 const StyledContainer = styled.div`
   overflow: hidden !important;
@@ -97,12 +102,22 @@ const Component = () => {
 
   const [category, setCategory] = useState("All Topics");
 
+  const [reload, setReload] = useState(false);
+
+  const navigate = useNavigate();
+
   const location = useLocation();
   console.log(location);
   const categoryQuery = useLocation().search;
 
   const host = process.env.REACT_APP_API;
   const local = process.env.REACT_APP_LOCAL;
+
+  const refresh = () => {
+    window.onload = function () {
+      navigate("/");
+    };
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,7 +132,12 @@ const Component = () => {
       }
     };
     fetchData();
+    refresh();
   }, [categoryQuery]);
+
+  // useEffect(() => {
+  //   refresh();
+  // }, [reload]);
 
   // const [posts, setPosts] = useState([
   //   {

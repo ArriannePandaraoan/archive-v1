@@ -22,14 +22,19 @@ const Component = () => {
   return (
     <>
       <StyledContainer>
-        <Link className="text-gray-600 hover:text-blue-600 ml-[5%]">Home</Link>
         <Link
           className="text-gray-600 hover:text-blue-600 ml-[5%]"
-          to={`/about`}
+          to={`/archive-v1/`}
+        >
+          Home
+        </Link>
+        <Link
+          className="text-gray-600 hover:text-blue-600 ml-[5%]"
+          to={`/archive-v1/about`}
         >
           About
         </Link>
-        <Link className="text-gray-600 hover:text-blue-600 ml-[5%]">Blogs</Link>
+        {/* <Link className="text-gray-600 hover:text-blue-600 ml-[5%]">Blogs</Link> */}
         <Link className="items-center justify-end flex w-[100%] mr-[5%]">
           {currentUser ? (
             <>
