@@ -115,7 +115,8 @@ const Component = () => {
 
   const refresh = () => {
     window.onload = function () {
-      navigate("/");
+      navigate("/archive-v1");
+      setCategory("All Topics");
     };
   };
 
@@ -123,8 +124,8 @@ const Component = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8800/api/posts${categoryQuery}`
-          // `http://ec2-13-214-39-225.ap-southeast-1.compute.amazonaws.com:8800/api/posts${categoryQuery}`
+          // `http://localhost:8800/api/posts${categoryQuery}`
+          `http://ec2-13-214-146-19.ap-southeast-1.compute.amazonaws.com:8800/api/posts${categoryQuery}`
         );
         setPosts(res.data);
       } catch (err) {
@@ -182,27 +183,40 @@ const Component = () => {
       </StyledContainerSearch>
       <StyledAligment>
         <StyledContainerCategory>
-          <Link to={`http://localhost:3000/?category=Agriculture`}>
+          {/* <Link to={`http://localhost:3000/?category=Agriculture`}> */}
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Agriculture`}
+          >
             <AgricultureButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Coding`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Coding`}
+          >
             <CodingButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Economics`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Economics`}
+          >
             <EconomicsButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Aws`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Aws`}
+          >
             <AwsButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=CrimeSceneInvest`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=CrimeSceneInvest`}
+          >
             <MathButton setCategory={setCategory} />
           </Link>
 
-          <Link to={`http://localhost:3000/?category=Optimization`}>
+          <Link
+            to={`https://arriannepandaraoan.github.io/archive-v1/?category=Optimization`}
+          >
             <OptimizationButton setCategory={setCategory} />
           </Link>
         </StyledContainerCategory>
