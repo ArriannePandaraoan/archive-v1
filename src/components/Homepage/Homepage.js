@@ -125,7 +125,7 @@ const Component = () => {
       try {
         const res = await axios.get(
           // `http://localhost:8800/api/posts${categoryQuery}`
-          `http://ec2-13-214-146-19.ap-southeast-1.compute.amazonaws.com:8800/api/posts${categoryQuery}`
+          `https://ec2-18-142-115-235.ap-southeast-1.compute.amazonaws.com/api/posts${categoryQuery}`
         );
         setPosts(res.data);
       } catch (err) {

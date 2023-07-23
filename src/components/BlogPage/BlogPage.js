@@ -64,7 +64,7 @@ const Component = () => {
       try {
         const res = await axios.get(
           // `http://localhost:8800/api/posts/${postId}`
-          `http://ec2-13-214-146-19.ap-southeast-1.compute.amazonaws.com:8800/api/posts/${postId}`
+          `https://ec2-18-142-115-235.ap-southeast-1.compute.amazonaws.com/api/posts/${postId}`
         );
         setPost(res.data);
       } catch (err) {
@@ -78,7 +78,7 @@ const Component = () => {
     try {
       // await axios.delete(`http://localhost:8800/api/posts/${postId}`);
       await axios.delete(
-        `http://ec2-13-214-146-19.ap-southeast-1.compute.amazonaws.com:8800/api/posts/${postId}`
+        `https://ec2-18-142-115-235.ap-southeast-1.compute.amazonaws.com/api/posts/${postId}`
       );
       navigate("/");
     } catch (err) {
