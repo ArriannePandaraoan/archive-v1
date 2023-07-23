@@ -115,7 +115,7 @@ const Component = () => {
 
   const refresh = () => {
     window.onload = function () {
-      navigate("/archive-v1");
+      navigate("/archive-v1/");
       setCategory("All Topics");
     };
   };
